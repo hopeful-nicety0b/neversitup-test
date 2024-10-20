@@ -1,0 +1,13 @@
+services:
+  app:
+    container_name: app
+    command: 'npm run test'
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+      - /usr/src/app/dist
+    ports:
+      - '8080:8080'
